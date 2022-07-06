@@ -25,12 +25,32 @@
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
             <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons>
+        <table style="height:100px" *ngIf="notifications.data.length==0">
+            <tr>
+                <td style="text-align: center;" [attr.colspan]="displayedColumns.length">
+                    No Records Found!
+                </td>
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons [fxShow]="notifications.data.length!=0">
         </mat-paginator>
     </div>
 
-    <mat-card *ngIf="notificationDates?.length" style="margin-top: 5px; padding: 0px;">
+    <mat-card *ngIf="notificationDates?.length" style="margin-top: 10px; padding: 0px;">
         <mat-toolbar class="element-toolbar customtoolbar">Company Name: {{companyName}}</mat-toolbar>
         <app-schedule-details [notificationDates]="notificationDates"></app-schedule-details>
     </mat-card>
 </div>
+
+
+<ng-template #deleteConfirmation>
+    <h1 mat-dialog-title>Confirm</h1>
+    <mat-dialog-content>
+        <div>Do you want to delete this notification?</div>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayoutGap="10px">
+        <span class="toolbar-spacer"></span>
+        <button mat-stroked-button [mat-dialog-close]="false" type="button" color="warn">No</button>
+        <button mat-raised-button [mat-dialog-close]="true" type="submit" color="primary">Yes</button>
+    </mat-dialog-actions>
+</ng-template>

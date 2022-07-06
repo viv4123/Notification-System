@@ -1,11 +1,11 @@
 import { getNotifications, getNotificationById } from './../../State/Notification/notification.selector';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Store } from '@ngrx/store';
 import { NotificationService } from 'src/app/Services/notification.service';
 import { AppState } from 'src/app/State/app.state';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 import { Notification } from "../../Models/notification";
 import { deleteNotification, loadNotifications } from 'src/app/State/Notification/notification.action';
 import { MatPaginator } from '@angular/material/paginator';
@@ -21,13 +21,14 @@ export class NotificationsComponent implements OnInit {
   notificationDates: any;
   companyName: any;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
+  @ViewChild("deleteConfirmation") private deleteConfirmation: TemplateRef<any>;
   notifications: MatTableDataSource<Notification>;
 
   constructor(private notificationSerive: NotificationService,
     private store: Store<AppState>,
     private _snackBar: MatSnackBar,
     private masterService: MasterService,
+    private dialog: MatDialog
   ) { }
 
   displayedColumns = [{ columnDef: 'companyName', header: 'Company Name', cell: (element: any) => element.companyName },
@@ -50,9 +51,15 @@ export class NotificationsComponent implements OnInit {
 
   onDelete(rowItem: Notification) {
     let id = rowItem.id;
-    if (confirm('Are you sure you want to delete')) {
-      this.store.dispatch(deleteNotification({ id }));
+    var dialog = this.dialog.open(this.deleteConfirmation, {
+      width: "40%"
+    });
+    dialog.afterClosed().subscribe(r => {
+      if (r) {
+        this.store.dispatch(deleteNotification({ id }));
+      }
     }
+    )
   }
 
 

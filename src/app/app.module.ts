@@ -32,6 +32,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { HelpComponent } from './Shared/help/help.component';
 import { NotificationListComponent } from './Components/notification-list/notification-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSidenavModule,
     MatDividerModule,
     MatPaginatorModule,
+    MatDialogModule,
     StoreModule.forRoot(appReducer, {
       runtimeChecks: {
         strictStateImmutability: false,

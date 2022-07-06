@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="notificationList.length > 0">
     <!-- <mat-toolbar class="element-toolbar">Notification Schedule Details</mat-toolbar> -->
     <div *ngFor="let item of notificationList">
         <mat-card style="margin: 5px; padding: 0px;">
@@ -7,3 +7,6 @@
         </mat-card>
     </div>
 </mat-card>
+<div class="middle" *ngIf="notificationList.length == 0">
+    <h1> No Records Found!</h1>
+</div>
