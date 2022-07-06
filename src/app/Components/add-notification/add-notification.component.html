@@ -1,0 +1,28 @@
+<div fxLayout="column" [formGroup]="basicForm">
+    <div fxLayout="column" fxLayoutGap="10px" fxLayout.gt-sm="row">
+        <mat-form-field class="form-element" fxFlex="20" appearance="outline">
+            <mat-label>Company Name</mat-label>
+            <input matInput formControlName="companyName">
+        </mat-form-field>
+        <mat-form-field class="form-element" fxFlex="20" appearance="outline">
+            <mat-label>Company Number</mat-label>
+            <input matInput formControlName="companyNumber">
+        </mat-form-field>
+        <mat-form-field class="form-element" fxFlex="20" appearance="outline">
+            <mat-label>Company Type</mat-label>
+            <mat-select formControlName="companyType">
+                <mat-option *ngFor="let type of companyTypeList" [value]="type.id">{{type.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-element" fxFlex="20" appearance="outline">
+            <mat-label>Market</mat-label>
+            <mat-select formControlName="market">
+                <mat-option *ngFor="let market of marketList" [value]="market.id">{{market.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div fxFlex="20">
+            <button mat-flat-button color="primary" class="custombutton" (click)="submitCompanyDetails()">Add
+                Notification</button>
+        </div>
+    </div>
+</div>

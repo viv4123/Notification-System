@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-toolbar {
+    background: #3f51b5 !important;
+    color: white !important;
+}
+
+.customtoolbar {
+    font-weight: 400;
+    font-size: medium;
+    height: 40px;
+}
+
+.alignCntr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

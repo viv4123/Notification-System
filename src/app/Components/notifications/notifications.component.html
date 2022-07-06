@@ -1,0 +1,36 @@
+<div style="padding:10px">
+
+    <app-add-notification></app-add-notification>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="notifications">
+            <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.columnDef">
+                <mat-header-cell *matHeaderCellDef [fxFlex]="100">
+                    <span><b>{{ column.header }}</b></span>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row;let i=index" [fxFlex]="100">
+                    <div *ngIf="column.columnDef != 'action'">
+                        {{ column.cell(row,i) }}
+                    </div>
+                    <div *ngIf="column.columnDef == 'action'" fxFlex="100" fxLayoutAlign="start center">
+                        <button mat-icon-button color="primary" matTooltip="Details" (click)="openDetails(row)">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="Delete" (click)="onDelete(row)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                    </div>
+                </mat-cell>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+
+    <mat-card *ngIf="notificationDates?.length" style="margin-top: 5px; padding: 0px;">
+        <mat-toolbar class="element-toolbar customtoolbar">Company Name: {{companyName}}</mat-toolbar>
+        <app-schedule-details [notificationDates]="notificationDates"></app-schedule-details>
+    </mat-card>
+</div>

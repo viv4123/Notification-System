@@ -1,0 +1,48 @@
+<div fxLayout="row" style="padding:15px">
+    <div *ngFor="let date of notificationDates let i=index; let first=first ;let last=last;" fxFlex="20">
+        <div fxLayout="row">
+            <div>
+                <button mat-mini-fab [disabled]="showbasedOnDate(date,i)" color="primary">
+                    <mat-icon *ngIf="!showbasedOnDate(date,i)">check</mat-icon>
+                    <mat-icon *ngIf="showbasedOnDate(date,i)">calendar_today</mat-icon>
+                </button>
+                <span></span>
+            </div>
+            <!-- <span class="dot" *ngIf="!showbasedOnDate(date,i)">
+                <mat-icon>check</mat-icon>
+            </span> -->
+            <!-- <span class="dot" *ngIf="showbasedOnDate(date,i)">
+                <mat-icon>calendar_today</mat-icon>
+            </span> -->
+
+            <div *ngIf="!last" style="width:100%;">
+                <span class="text" class="alignCntr">{{getDateCount(i)}}d.</span>
+                <span>
+                    <mat-progress-bar mode="determinate" [value]="getProgressValue(date,i)"></mat-progress-bar>
+                </span>
+            </div>
+        </div>
+        <div>
+            {{ date | date: 'dd/MM/yyyy'}}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <mat-card *ngIf="notificationDates?.length">
+    <mat-toolbar class="element-toolbar">Notification Schedule Details</mat-toolbar>
+    <div fxLayout="column" fxLayoutGap="10px">
+        <mat-horizontal-stepper [linear]=true #stepper class="customStepper">
+            <mat-step *ngFor="let date of notificationDates" [editable]="false">
+                <ng-container>
+                    <ng-template matStepLabel>
+                        <div fxLayoutAlign="center" fxLayoutGap="20px">
+                            {{date | date: 'dd/MM/yyyy'}}
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</mat-card> -->
