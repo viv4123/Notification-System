@@ -1,7 +1,7 @@
-import { getNotifications, getNotificationById } from './../../State/Notification/notification.selector';
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { getNotifications } from './../../State/Notification/notification.selector';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Store } from '@ngrx/store';
 import { NotificationService } from 'src/app/Services/notification.service';
 import { AppState } from 'src/app/State/app.state';
@@ -39,14 +39,13 @@ export class NotificationsComponent implements OnInit {
   columnsToDisplay = this.displayedColumns.map(c => c.columnDef);
   ngOnInit(): void {
     //this.notifications = this.store.select(getNotifications);
+    this.store.dispatch(loadNotifications());
     this.store
       .select(getNotifications)
       .subscribe((data) => {
         this.notifications = new MatTableDataSource(data);
         this.notifications.paginator = this.paginator;
       });
-    this.store.dispatch(loadNotifications());
-
   }
 
   onDelete(rowItem: Notification) {

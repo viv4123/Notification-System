@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
 import { Notification } from "../Models/notification";
 
@@ -56,7 +55,11 @@ export class NotificationService {
   }
 
   getALLScheduleDtetails() {
-    return JSON.parse(localStorage.getItem("notificationDateList")) || [];
+    let list = JSON.parse(localStorage.getItem("notificationDateList")) || [];
+    list = list.filter((item) => {
+      return item.notificationDates.length > 0;
+    });
+    return list;
   }
 
   deleteNotification(id: string) {
@@ -102,14 +105,14 @@ export class NotificationService {
       sendDay = [1, 7, 14, 28];
     }
     else {
-      return null;
+      return { companyId: id, companyName: details.companyName, notificationDates: [] };
     }
 
     for (var i = 0; i < sendDay.length; i++) {
       let date = new Date().setDate(new Date().getDate() + sendDay[i])
       notificationDates.push(new Date(date));
     }
-    return { companyId: id, companyName: details.companyName, notificationDates: notificationDates };;
+    return { companyId: id, companyName: details.companyName, notificationDates: notificationDates };
   }
 
 }

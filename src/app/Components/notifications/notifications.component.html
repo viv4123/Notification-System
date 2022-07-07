@@ -1,6 +1,6 @@
-<div style="padding:10px">
-
+<div class="p10">
     <app-add-notification></app-add-notification>
+
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="notifications">
             <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.columnDef">
@@ -36,7 +36,7 @@
         </mat-paginator>
     </div>
 
-    <mat-card *ngIf="notificationDates?.length" style="margin-top: 10px; padding: 0px;">
+    <mat-card *ngIf="notificationDates?.length" class="customcard">
         <mat-toolbar class="element-toolbar customtoolbar">Company Name: {{companyName}}</mat-toolbar>
         <app-schedule-details [notificationDates]="notificationDates"></app-schedule-details>
     </mat-card>

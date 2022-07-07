@@ -21,7 +21,8 @@
             </mat-select>
         </mat-form-field>
         <div fxFlex="20">
-            <button mat-flat-button color="primary" class="custombutton" (click)="submitCompanyDetails()">Add
+            <button mat-flat-button color="primary" class="custombutton" (click)="submitCompanyDetails()"
+                [disabled]="!basicForm.valid">Add
                 Notification</button>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <mat-card *ngIf="notificationList.length > 0">
     <!-- <mat-toolbar class="element-toolbar">Notification Schedule Details</mat-toolbar> -->
     <div *ngFor="let item of notificationList">
-        <mat-card style="margin: 5px; padding: 0px;">
+        <mat-card class="customcard">
             <mat-toolbar class="element-toolbar customtoolbar">Company Name: {{item.companyName}}</mat-toolbar>
             <app-schedule-details [notificationDates]="item.notificationDates"></app-schedule-details>
         </mat-card>

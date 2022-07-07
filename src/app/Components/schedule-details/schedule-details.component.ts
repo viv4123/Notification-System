@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-schedule-details',
@@ -29,7 +29,5 @@ export class ScheduleDetailsComponent implements OnInit {
       return 100;
     else
       return currenDayDiff * 100 / maxDays
-
-
   }
 }

@@ -1,4 +1,4 @@
-<div fxLayout="row" style="padding:15px">
+<div fxLayout="row" class="p15">
     <div *ngFor="let date of notificationDates let i=index; let first=first ;let last=last;" fxFlex="20">
         <div fxLayout="row">
             <div>
@@ -8,13 +8,6 @@
                 </button>
                 <span></span>
             </div>
-            <!-- <span class="dot" *ngIf="!showbasedOnDate(date,i)">
-                <mat-icon>check</mat-icon>
-            </span> -->
-            <!-- <span class="dot" *ngIf="showbasedOnDate(date,i)">
-                <mat-icon>calendar_today</mat-icon>
-            </span> -->
-
             <div *ngIf="!last" style="width:100%;">
                 <span class="text" class="alignCntr">{{getDateCount(i)}}d.</span>
                 <span>

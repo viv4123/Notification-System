@@ -1,9 +1,8 @@
 import { Notification } from './../../Models/notification';
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { MasterService } from 'src/app/Services/master.service';
-import { NotificationService } from 'src/app/Services/notification.service';
 import { AppState } from "src/app/State/app.state";
 import { addNotification } from "src/app/State/Notification/notification.action";
 
@@ -18,13 +17,12 @@ export class AddNotificationComponent implements OnInit {
   marketList: { id: number; name: string; }[];
 
   basicForm = new FormGroup({
-    companyName: new FormControl(),
-    companyNumber: new FormControl(),
-    companyType: new FormControl(),
-    market: new FormControl(),
+    companyName: new FormControl('', [Validators.required]),
+    companyNumber: new FormControl('', [Validators.required]),
+    companyType: new FormControl('', [Validators.required]),
+    market: new FormControl('', [Validators.required]),
   });
   constructor(private masterService: MasterService,
-    private notificationSerive: NotificationService,
     private store: Store<AppState>) { }
 
   ngOnInit(): void {
@@ -32,9 +30,9 @@ export class AddNotificationComponent implements OnInit {
     this.marketList = this.masterService.getMarket();
   }
   submitCompanyDetails() {
-    // var data = this.basicForm.value;
-    // this.notificationSerive.addNotifucation(data);
-    // this.valueChange.emit();
+    if (!this.basicForm.valid) {
+      return;
+    }
     const notification: Notification = {
       companyName: this.basicForm.value.companyName,
       companyNumber: this.basicForm.value.companyNumber,
