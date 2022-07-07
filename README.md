@@ -13,7 +13,7 @@ Notification Systen offering an simple interface to create notification scheduli
 Action Items:
 1. Add Notification : Based on the created date all the notification schedule will be created (depends on conditions like type and market).
 2. Company Details: Added notification for a Company will be displayed in a Grid.
-3. Notification Details: Will showcase all the schedule notification details.
+3. Schedule Details: Will showcase the schedule notification details.
 
 * NgRx framework is used to develop this application.
 * Mock API services has been used to peroform the the functionalities.
