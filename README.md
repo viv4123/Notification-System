@@ -4,9 +4,10 @@
 
 Notification Systen offering an simple interface to create notification scheduling.
 
-![Screenshot 2022-07-07 130820](https://user-images.githubusercontent.com/108822934/177718769-7ff66588-de7b-49ae-85e8-a8905af8a4bc.png)
+![Screenshot 2022-07-07 130820](https://user-images.githubusercontent.com/108822934/177723393-ad622725-6312-4cb8-9cc9-b8f1878000ed.png)
 
-![Screenshot 2022-07-07 130906](https://user-images.githubusercontent.com/108822934/177718894-0f688f0d-957f-46af-a4b6-c4491b898183.png)
+
+![Screenshot 2022-07-07 130906](https://user-images.githubusercontent.com/108822934/177723417-1a24ce70-160f-4b17-9e5c-37f1ed61a742.png)
 
 
 Action Items:
