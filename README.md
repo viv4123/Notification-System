@@ -1,7 +1,7 @@
 
-![Screenshot 2022-07-07 122308](https://user-images.githubusercontent.com/108822934/177717973-a2a2c7b7-a040-430f-a6bd-be138304a9f8.png)
+![Screenshot 2022-07-07 130820](https://user-images.githubusercontent.com/108822934/177718769-7ff66588-de7b-49ae-85e8-a8905af8a4bc.png)
 
-![Screenshot 2022-07-07 122631](https://user-images.githubusercontent.com/108822934/177717981-13cc3564-3296-4e77-bc4c-95f335b4e324.png)
+![Screenshot 2022-07-07 130906](https://user-images.githubusercontent.com/108822934/177718894-0f688f0d-957f-46af-a4b6-c4491b898183.png)
 
 # NotificationApp
 
