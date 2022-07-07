@@ -16,7 +16,7 @@ Action Items:
 3. Schedule Details: Will showcase the schedule notification details.
 
 * NgRx framework is used to develop this application.
-* Mock API services has been used to peroform the the functionalities.
+* Mock API services has been used to complete the functionalities.
 * local storage is used to store the data.
 
 
