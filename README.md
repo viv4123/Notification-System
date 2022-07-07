@@ -1,3 +1,8 @@
+
+![Screenshot 2022-07-07 122308](https://user-images.githubusercontent.com/108822934/177717973-a2a2c7b7-a040-430f-a6bd-be138304a9f8.png)
+
+![Screenshot 2022-07-07 122631](https://user-images.githubusercontent.com/108822934/177717981-13cc3564-3296-4e77-bc4c-95f335b4e324.png)
+
 # NotificationApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
